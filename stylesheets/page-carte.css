@@ -1,0 +1,20 @@
+.box {
+    width: 400px;
+    border: 7px solid #56382d;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.title {
+    text-decoration: underline;
+}
+
+.description {
+    font-style: italic;
+}
+
+.prix {
+    font-weight: bold;
+}

@@ -1,0 +1,18 @@
+.box {
+    width: 400px;
+    border: 7px solid #56382d;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.box-heure {
+    width: 300px;
+    border: 5px solid #56382d;
+    background-color: #56382d;
+    padding: 15px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 15px;
+}

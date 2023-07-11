@@ -1,0 +1,46 @@
+    /*-- QuaiAntique Button --*/
+.btn-quaiAntique { 
+    color: #FFFFFF; 
+    background-color: #6B1B00; 
+    border-color: #FFFFFF; 
+} 
+   
+.btn-quaiAntique:hover, 
+.btn-quaiAntique:focus, 
+.btn-quaiAntique:active, 
+.btn-quaiAntique.active, 
+.open .dropdown-toggle.btn-quaiAntique { 
+    color: #FFFFFF; 
+    background-color: #6b1b00; 
+    border-color: #FFFFFF; 
+} 
+   
+.btn-quaiAntique:active, 
+.btn-quaiAntique.active, 
+.open .dropdown-toggle.btn-quaiAntique { 
+    background-image: none; 
+} 
+   
+.btn-quaiAntique.disabled, 
+.btn-quaiAntique[disabled], 
+fieldset[disabled] .btn-quaiAntique, 
+.btn-quaiAntique.disabled:hover, 
+.btn-quaiAntique[disabled]:hover, 
+fieldset[disabled] .btn-quaiAntique:hover, 
+.btn-quaiAntique.disabled:focus, 
+.btn-quaiAntique[disabled]:focus, 
+fieldset[disabled] .btn-quaiAntique:focus, 
+.btn-quaiAntique.disabled:active, 
+.btn-quaiAntique[disabled]:active, 
+fieldset[disabled] .btn-quaiAntique:active, 
+.btn-quaiAntique.disabled.active, 
+.btn-quaiAntique[disabled].active, 
+fieldset[disabled] .btn-quaiAntique.active { 
+    background-color: #6B1B00; 
+    border-color: #FFFFFF; 
+} 
+   
+.btn-quaiAntique .badge { 
+    color: #6B1B00; 
+    background-color: #FFFFFF; 
+}
