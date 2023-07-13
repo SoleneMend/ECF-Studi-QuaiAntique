@@ -42,9 +42,9 @@ CREATE TABLE `carte` (
 ) ENGINE = InnoDB;
 
 INSERT INTO `carte` (`carte_name`, `carte_description`, `carte_price`) VALUES
-('Fondue savoyarde', "Savoureuse crème à base de différents fromages, avec un peu de vin blanc et des petits morceaux d'ails.", 17),
-('Tartiflette', "Cette se présente sous forme de gratin très riche et savoureux car il est composé de lardon fumé, de pommes de terre coupées en rondelles, de morceaux de reblochon fondus et d'un peu d'oignon", 18),
-('La Poêlée Montagnarde', "Toujours a base de pommes de terre, de lardons fumées, de fromage d'Abandance et de vin blanc.", 15);
+('Fondue savoyarde', "Savoureuse creme a base de differents fromages, avec un peu de vin blanc et des petits morceaux d'ails.", 17),
+('Tartiflette', "Cette recette se presente sous forme de gratin tres riche et savoureux car il est compose de lardon fume, de pommes de terre coupees en rondelles, de morceaux de reblochon fondus et d'un peu d'oignon", 18),
+('La Poelee Montagnarde', "Toujours a base de pommes de terre, de lardons fumees, de fromage d'Abandance et de vin blanc.", 15);
 
 
 -- Table galerieImage :
@@ -55,8 +55,12 @@ CREATE TABLE `galerieImage` (
 ) ENGINE = InnoDB;
 
 INSERT INTO `galerieImage` (`galerieImage_name`, `galerieImage_imgLink`) VALUES
-('Tartiflette', "img/tartiflette.jpg"),
-('Poêlée Montargnarde', "img/poelee-montagnarde.jpg");
+('Tartiflette', "img/tartiflette.png"),
+('Matouille', "img/matouille.png"),
+('Raclette', "img/raclette.png"),
+('Farcement Savoyard', "img/farcement-savoyard.png"),
+('Fondue Savoyarde', "img/fondue-savoyarde.png"),
+('Poelee Montargnarde', "img/poelee-montagnarde.png");
 
 -- Table horaire :
 CREATE TABLE `horaire` (
@@ -82,3 +86,17 @@ INSERT INTO `horaire` (`horaire_day`, `horaire_time`, `horaire_start`, `horaire_
 ('samedi', 'diner', '19:00:00', '22:00:00'),
 ('dimanche', 'dejeuner', '11:00:00', '14:30:00'),
 ('dimanche', 'diner', '19:00:00', '22:00:00');
+
+-- Table menu :
+CREATE TABLE `menu` (
+    `menu_id` INT(3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `menu_title` VARCHAR(36) NOT NULL,
+    `menu_description` VARCHAR(56) NOT NULL,
+    `menu_horaire` VARCHAR(36) NOT NULL,
+    `menu_prix` INT(3) NOT NULL
+) ENGINE = InnoDB;
+
+INSERT INTO `menu` (`menu_title`, `menu_description`, `menu_horaire`, `menu_prix`) VALUES
+('Formule Simple', 'Entree + Plat', 'toute la semaine', 25),
+('Formule Gourmande', 'Plat + Dessert', 'toute la semaine', 25),
+('Formule Complete', 'Entree + Plat + Dessert', 'week-end seulement', 30);
