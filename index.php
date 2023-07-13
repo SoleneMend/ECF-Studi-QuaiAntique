@@ -64,8 +64,8 @@ include 'php-pages/functions.php';
 
     <!-- Main -->
     <main>
-        <!-- Galerie d'Image -->
-        <section class="Images">
+        <!-- Galerie d'Image desktop-->
+        <section class="images nav-pc">
             <div id="carouselGalerieImage" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <?php
@@ -76,8 +76,8 @@ include 'php-pages/functions.php';
                             echo
                             "<div class='carousel-item active'>
                                 <img class='d-block w-50 mx-auto' src=" . $img['galerieImage_imgLink'] . ">
-                                <div class='carousel-caption d-none d-md-block'>
-                                    <h5>" . $img['galerieImage_name'] . "</h5>
+                                <div class='box carousel-caption d-none d-md-block'>
+                                    <h5 class='text-hover'>" . $img['galerieImage_name'] . "</h5>
                                 </div>
                             </div>";
                         } else {
@@ -85,15 +85,13 @@ include 'php-pages/functions.php';
                             "<div class='carousel-item'>
                                 <img class='d-block w-50 mx-auto' src=" . $img['galerieImage_imgLink'] . ">
                                 <div class='carousel-caption d-none d-md-block'>
-                                    <h5>" . $img['galerieImage_name'] . "</h5>
+                                    <h5 class='text-hover'>" . $img['galerieImage_name'] . "</h5>
                                 </div>
                             </div>";
                         }
                     }
                     ?>
                 </div>
-            </div>
-            <div class="align-self-center">
                 <button class="carousel-control-prev" href="#carouselGalerieImage" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                 </button>
@@ -101,16 +99,43 @@ include 'php-pages/functions.php';
                     <span class="carousel-control-next-icon"></span>
                 </button>
             </div>
-            </div>
-            <!--
-                    Galerie d'image a coder, "faire appartaire les images du sql en question + surligner le nom quand on passe dessus"
-                -->
         </section>
-
+        <!-- Galerie d'Image mobile -->
+        <section class="images nav-mobile">
+            <div id="carouselGalerieImage" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <?php
+                    $isfirst = true;
+                    foreach ($pdo->query("SELECT * FROM `galerieImage` ORDER BY `galerieImage_id`", PDO::FETCH_ASSOC) as $img) {
+                        if ($isfirst) {
+                            $isfirst = false;
+                            echo
+                            "<div class='carousel-item active'>
+                                <img class='d-block w-100 mx-auto' src=" . $img['galerieImage_imgLink'] . ">
+                                <div class='box carousel-caption d-md-block'>
+                                    <h5 class='text-hover'>" . $img['galerieImage_name'] . "</h5>
+                                </div>
+                            </div>";
+                        } else {
+                            echo
+                            "<div class='carousel-item'>
+                                <img class='d-block w-100 mx-auto' src=" . $img['galerieImage_imgLink'] . ">
+                                <div class='carousel-caption d-md-block'>
+                                    <h5 class='text-hover'>" . $img['galerieImage_name'] . "</h5>
+                                </div>
+                            </div>";
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+        </section>
         <!-- Reservation -->
-        <section id="reservation">
-            <div class="text-center" href="#">
-                <button type="button" class="btn btn-quaiAntique btn-lg">Reservation</button>
+        <section>
+            <div class="text-center py-5" id="reservation">
+                <button type="button" class="btn btn-quaiAntique btn-lg">
+                    Reservation
+                </button>
                 <!--
                         Reservation a coder, soit une nouvelle page soit un pop up.
                     -->
@@ -118,38 +143,24 @@ include 'php-pages/functions.php';
         </section>
         <!-- Menu + Carte + Horaire Desktop display -->
         <section class="container -appear mt-3 py-2 nav-pc">
-            <article class="d-flex justify-content-around">
+            <article class="d-flex justify-content-around align-items-center">
                 <div class="order-lg-1">
-                    <div class="px-5" id="menu">
-                        <h4 class="text-center">Menu </h4>
-                        <p>
-                            <b><u>Formule Simple</u> : 25€ </b><br>
-                            entrée + plat <br>
-                            <i>(toute la semaine)</i>
-                        </p>
-                        <hr>
-                        </hr>
-                        <p>
-                            <b><u>Formule Gourmande</u> : 25€ </b> <br>
-                            plat + dessert <br>
-                            <i>(toute la semaine)</i>
-                        </p>
-                        <hr>
-                        </hr>
-                        <p>
-                            <b><u>Formule Complete</u> : 30€ </b> <br>
-                            entrée + plat + dessert <br>
-                            <i>(week-end seulement)</i>
-                        </p>
+                    <div class="box px-5" id="menu">
+                        <h4 class="text-center">Menu :</h4>
+                        <?php
+                        foreach ($pdo->query("SELECT * FROM `menu` ORDER BY `menu_id`", PDO::FETCH_ASSOC) as $m) {
+                            echo "<hr></hr> <p> <b><u>" . $m['menu_title'] . "</u> : " . $m['menu_prix'] . "€</b><br>" . $m['menu_description'] . "<br> <i>(" . $m['menu_horaire'] . ")</i> </p>";
+                        }
+                        ?>
                     </div>
-                    <div class="text-center px-5" id="carte">
+                    <div class="text-center px-5 py-5" id="carte">
                         <button type="button" class="btn btn-quaiAntique btn-lg">
                             <a class="text-url-button" href="php-pages/carte.php">Notre Carte </a>
                         </button>
                     </div>
                 </div>
-                <div id="horaire" class="order-lg-2">
-                    <div class="text-center px-5">
+                <div class="order-lg-2">
+                    <div class="box text-center px-5" id="horaire">
                         <h4>Horaire :</h4>
                         <?php
                         $day = null;
@@ -183,36 +194,22 @@ include 'php-pages/functions.php';
         <section class="container -appear mt-3 py-2 nav-mobile">
             <article class="row align-items-center">
                 <div class="order-lg-1">
-                    <div class="px-5" id="menu">
-                        <h4 class="text-center">Menu </h4>
-                        <p>
-                            <b><u>Formule Simple</u> : 25€ </b><br>
-                            entrée + plat <br>
-                            <i>(toute la semaine)</i>
-                        </p>
-                        <hr>
-                        </hr>
-                        <p>
-                            <b><u>Formule Gourmande</u> : 25€ </b> <br>
-                            plat + dessert <br>
-                            <i>(toute la semaine)</i>
-                        </p>
-                        <hr>
-                        </hr>
-                        <p>
-                            <b><u>Formule Complete</u> : 30€ </b> <br>
-                            entrée + plat + dessert <br>
-                            <i>(week-end seulement)</i>
-                        </p>
+                    <div class="box px-5 py-5" id="menu">
+                        <h4 class="text-center">Menu :</h4>
+                        <?php
+                        foreach ($pdo->query("SELECT * FROM `menu` ORDER BY `menu_id`", PDO::FETCH_ASSOC) as $m) {
+                            echo "<hr></hr> <p> <b><u>" . $m['menu_title'] . "</u> : " . $m['menu_prix'] . "€</b><br>" . $m['menu_description'] . "<br> <i>(" . $m['menu_horaire'] . ")</i> </p>";
+                        }
+                        ?>
                     </div>
-                    <div class="text-center px-5" id="carte">
+                    <div class="text-center px-5 py-5" id="carte">
                         <button type="button" class="btn btn-quaiAntique btn-lg">
                             <a class="text-url-button" href="php-pages/carte.php">Notre Carte </a>
                         </button>
                     </div>
                 </div>
-                <div id="horaire" class="order-lg-2">
-                    <div class="text-center px-5">
+                <div class="order-lg-2">
+                    <div class="box text-center px-5" id="horaire">
                         <h4>Horaire :</h4>
                         <?php
                         $day = null;
