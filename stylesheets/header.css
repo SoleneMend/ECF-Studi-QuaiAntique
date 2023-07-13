@@ -1,13 +1,13 @@
-    /*-- Navbar --*/
-.navbar{
+/*-- Navbar --*/
+.navbar {
     background-color: #56382d;
 }
-    
-.nav-link, .nav-link:visited {
-    color:white;
+
+.nav-link,
+.nav-link:visited {
+    color: white;
 }
-    
-.nav-link:hover{
-    color:antiquewhite;
+
+.nav-link:hover {
+    color: antiquewhite;
 }
-    

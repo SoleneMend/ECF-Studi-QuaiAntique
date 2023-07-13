@@ -1,6 +1,6 @@
 body {
     background-color: #ae8b70;
-    color:white;
+    color: white;
 }
 
 .text-url:link {
@@ -9,4 +9,53 @@ body {
 
 .text-url:visited {
     color: black;
+}
+
+.text-url-button:link {
+    color: white;
+}
+
+.text-url-button:visited {
+    color: antiquewhite;
+}
+
+.texthover:hover {
+    color: white;
+}
+
+.carousel-inner img {
+    width: auto;
+    height: auto;
+}
+
+h4 {
+    color: #6B1B00;
+}
+
+.nomFormule {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.prixFormule {
+    font-weight: bold;
+}
+
+.horaireFormule {
+    text-align: center;
+    font-style: italic;
+}
+
+.nav-mobile {
+    display: none;
+}
+
+@media screen and ( max-width: 1000px ) {
+    .nav-mobile {
+        display: block ;
+    }
+
+    .nav-pc {
+        display: none ;
+    }
 }
