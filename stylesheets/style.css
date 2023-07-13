@@ -19,43 +19,65 @@ body {
     color: antiquewhite;
 }
 
-.texthover:hover {
-    color: white;
+.carousel-item h5{
+    opacity: 0%;
+}
+
+.carousel-item .carousel-caption{
+    background-color: rgba(86, 56, 45, 0%);
+    margin: auto;
+    width: 25%;
+    border-radius: 30px;
+    border: 5px solid rgba(86, 56, 45, 0%);
+}
+
+.carousel-item:hover h5{
+    opacity: 75%;
+    font-weight: bold;
+}
+
+.carousel-item:hover .carousel-caption{
+    background-color: rgba(86, 56, 45, 75%);
+    border: 5px solid rgba(86, 56, 45, 75%);
 }
 
 .carousel-inner img {
     width: auto;
     height: auto;
+    border: 5px solid #56382d;
+    border-radius: 30px;
 }
 
-h4 {
-    color: #6B1B00;
+#menu.box {
+    width: 400px;
+    border: 5px solid white;
+    background-color: #56382d;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 30px;
 }
 
-.nomFormule {
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-.prixFormule {
-    font-weight: bold;
-}
-
-.horaireFormule {
-    text-align: center;
-    font-style: italic;
+#horaire.box {
+    width: 400px;
+    border: 5px solid white;
+    background-color: #6B1B00;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 30px;
 }
 
 .nav-mobile {
     display: none;
 }
 
-@media screen and ( max-width: 1000px ) {
+@media screen and (max-width: 1000px) {
     .nav-mobile {
-        display: block ;
+        display: block;
     }
 
     .nav-pc {
-        display: none ;
+        display: none;
     }
 }
