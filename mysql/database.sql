@@ -55,8 +55,8 @@ CREATE TABLE `galerieImage` (
 ) ENGINE = InnoDB;
 
 INSERT INTO `galerieImage` (`galerieImage_name`, `galerieImage_imgLink`) VALUES
-('Tartiflette', "../img/tartiflette.jpg"),
-('Poêlée Montargnarde', "../img/poelee-montagnarde.jpg");
+('Tartiflette', "img/tartiflette.jpg"),
+('Poêlée Montargnarde', "img/poelee-montagnarde.jpg");
 
 -- Table horaire :
 CREATE TABLE `horaire` (
