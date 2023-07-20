@@ -24,8 +24,6 @@ include 'php-pages/functions.php';
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/icon.png" />
     <link rel="stylesheet" href="stylesheets/style.css" />
-    <link rel="stylesheet" href="stylesheets/header.css" />
-    <link rel="stylesheet" href="stylesheets/footer.css" />
     <link rel="stylesheet" href="stylesheets/button.css" />
 
     <!-- Title -->
@@ -41,13 +39,13 @@ include 'php-pages/functions.php';
         </a>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link" href="#horaire">Horaires</a>
+                <a class="nav-link" href="#header">Page d'accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#reservation">Reservation</a>
+                <a class="nav-link" href="page-reservation.php">Reservation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="php-pages/compte.php">
+                <a class="nav-link" href="compte.php">
                     <i class="ri-user-line"></i>
                 </a>
             </li>
@@ -255,7 +253,9 @@ include 'php-pages/functions.php';
         </div>
         <div class="Contact">
             <p class="small">
-                Contact
+                Contact : <br>
+
+                quaiantique@gmail.com
             </p>
         </div>
     </footer>
