@@ -1,11 +1,12 @@
 <?php
 session_start();
+
 include '../mysql/connect.php';
 include 'functions.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <!-- Meta -->
@@ -49,69 +50,60 @@ include 'functions.php';
         </div>
     </header>
     <!-- End Head -->
-
-    <!-- Main -->
     <main>
-        <?php
-        if (isset($_GET['login_err'])) {
-            $err = htmlspecialchars($_GET['login_err']);
-
-            switch ($err) {
-                case 'password':
-        ?>
-                    <div class="alert alert-danger">
-                        <strong> Erreur </strong> mot de passe incorrect
-                    </div>
-                <?php
-                    break;
-
-                case 'email':
-                ?>
-                    <div class="alert alert-danger">
-                        <strong> Erreur </strong> email incorrect
-                    </div>
-                <?php
-                    break;
-
-                case 'already':
-                ?>
-                    <div class="alert alert-danger">
-                        <strong> Erreur </strong> compte inexistant
-                    </div>
-        <?php
-                    break;
-
-                default:
-                    # code...
-                    break;
-            }
-        }
-
-        ?>
         <div class="box border-box">
-            <form action="connexion_code.php" method="post">
-                <h4 class="text-center"><u>Se connecter</u> :</h4>
+            <form action="modifier_password.php" method="post">
+                <h5 class="text-center"><u>Modifer mot de passe</u> :</h5> <br>
                 <div class="form-group">
-                    <label for="mail">Email :</label> <br />
-                    <input type="email" name="email" class="form-control" placeholder="Email" required>
-                </div><br />
+                    <label for="old-password">Mot de passe :</label> <br>
+                    <input type="password" name="old-password" class="form-control" placeholder="Entrer mot de passe" required>
+                </div> <br>
                 <div class="form-group">
-                    <label for="pass">Mot de passe :</label> <br />
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required>
-                </div><br />
-                <div class="form-group text-center">
-                    <button type="submit" class="btn btn-quaiAntique" onclick="">Connexion</button>
+                    <label for="new-password">Nouveau mot de passe :</label> <br>
+                    <input type="password" name="new-password" class="form-control" placeholder="Entrer nouveau mot de passe" required>
+                </div> <br>
+                <div class="form-group">
+                    <label for="new-retype-password">Confirmation mot de passe :</label> <br>
+                    <input type="password" name="new-retype-password" class="form-control" placeholder="Confirmer nouveau mot de passe" required>
+                </div> <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-quaiAntique">Modifer mot de passe</button>
                 </div>
             </form>
-        </div>
-        <div class="py-1 text-center">
-            <p>
-                Pas de compte ?
-                <a href="inscription.php" class="btn btn-quaiAntique btn-sm">Inscription</a>
-            </p>
-        </div>
+
+            <hr>
+            </hr>
+
+            <form action="modifier_convives.php" method="post">
+                <h5 class="text-center"><u>Modifier les convives </u> :</h5> <br>
+                <div class="form-group">
+                    <label for="convives">Nombre de Convives </label>
+                    <input type="number" name="convives" class="form-control" placeholder="Entrer le nombre de convives" required>
+                </div> <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-quaiAntique">Modifer convives </button>
+                </div>
+            </form>
+
+            <hr>
+            </hr>
+
+            <form action="modifier_allergies.php" method="post">
+                <h5 class="text-center"><u>Modifier les allergies </u> :</h5> <br>
+                <div class="form-group">
+                    <label for="allergies">Nombre de Allergies </label>
+                    <input type="text" name="allergies" class="form-control" placeholder="Entrer les allergies">
+                </div> <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-quaiAntique">Modifer allergies </button>
+                </div>
+            </form>
+        </div> <br>
+
+        <div class="text-center">
+            <a href="compte.php" class="btn btn-quaiAntique btn-lg">Retour au compte</a>
+        </div> <br>
     </main>
-    <!-- End Main -->
 
     <!-- Footer -->
     <footer class="py-1 d-flex justify-content-around ">

@@ -1,10 +1,20 @@
+<?php
+
+session_start();
+
+include "../mysql/connect.php";
+include "functions.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <!-- Meta -->
     <meta charset="UTF-8" />
-    <meta name="description" content="..." />
+    <meta name="description" content="Le Quai Antique est le troisième restaurant du Chef Arnaud, installé à Chambéry, 
+            specialisé dans la cuisine savoyarde." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Bootstrap CDN CSS -->
@@ -54,41 +64,54 @@
     <!-- Main -->
     <main>
         <div class="box">
-            <div>
-                <span class="title">Panini jambon :</span>
-                <span class="prix">7€</span><br />
-                <span class="description">
-                    panini au jambon fromage
-                </span>
-            </div>
-            <!-- Nom du plat souligner
-                        Description en italique 
-                        Prix enface du nom
-                 -->
-        </div>
+            <?php
+                foreach($pdo->query("SELECT * FROM carte", PDO::FETCH_ASSOC) as $carte)
+                {
+                    echo 
+                        "<div>
+                            <h5>
+                             - <span class='title'> ".$carte['carte_name']."</span> :
+                            <span class='prix'>".$carte['carte_price']."€</span>
+                            </h5>
+                            <span class='description'>".$carte['carte_description']."</span>
+                        </div> <br>";
+                }
+            ?>
+        </div> <br>
     </main>
     <!-- End Main -->
 
     <!-- Footer -->
     <footer class="py-1 d-flex justify-content-around ">
-        <div class="HoraireAujourdhui">
-            <p class="small">
-                Horaire du jour
-            </p>
+        <div class="HoraireAujourdhui small">
+            Horaire du jour : <br>
+            <?php
+            $today = JourdeSemaine();
+
+            foreach ($pdo->query("SELECT * FROM `horaire` ORDER BY `horaire_id`", PDO::FETCH_ASSOC) as $h) {
+                if ($h['horaire_day'] == $today && $h['horaire_time'] == 'dejeuner') {
+                    echo "<p>" . heureminute($h['horaire_start']) . " - " . heureminute($h['horaire_end']) . " | ";
+                }
+                if ($h['horaire_day'] == $today && $h['horaire_time'] == 'diner') {
+                    echo heureminute($h['horaire_start']) . " - " . heureminute($h['horaire_end']) . "</p>";
+                }
+            }
+            ?>
         </div>
         <div class="Contact">
             <p class="small">
-                Contact
+                Contact : <br>
+
+                quaiantique@gmail.com
             </p>
         </div>
     </footer>
     <!-- End Footer -->
 
     <!-- Bootstrap CDN JS files -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

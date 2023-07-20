@@ -43,8 +43,39 @@ function JourdeSemaine() {
     return $today;
 }
 
-function relocate($link)
-{
-    header('Location: '.$link);
-}
-?>
+ function GetJourdeSemaine($Date) {
+    $day = date("l", strtotime($Date));
+    switch ($day) {
+        case 'Monday':
+            $day = 'lundi';
+            break;
+
+        case 'Tuesday':
+            $day = 'mardi';
+            break;
+
+        case 'Wednesday':
+            $day = 'mercredi';
+            break;
+
+        case 'Thursday':
+            $day = 'jeudi';
+            break;
+
+        case 'Friday':
+            $day = 'vendredi';
+            break;
+
+        case 'Saturday':
+            $day = 'samedi';
+            break;
+
+        case 'Sunday':
+            $day = 'dimanche';
+            break;
+
+        default:
+            break;
+    }
+    return $day;
+ }
