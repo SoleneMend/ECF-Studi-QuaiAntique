@@ -29,10 +29,10 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
                     'convives' => '1',
                     'role' => "CLIENT"
                     ];
-                    header('Location:compte.php');
+                    header('Location:compte.php?reg_err=sucess');
 
                 } else header('Location:inscription.php?reg_err=passwords');
             }else header('Location:inscription.php?reg_err=email');
         }else header('Location:inscription.php?reg_err=length');
     }else header('Location:inscription.php?reg_err=already');
-}else header('Location:inscription.php');
+}else header('Location:inscription.php?reg_err=incorrect');

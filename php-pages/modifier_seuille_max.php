@@ -19,5 +19,5 @@ if (isset($_POST['day']) && isset($_POST['time']) && isset($_POST['seuille'])) {
             header('Location:page-admin.php?Seuille_err=success');
 
         } else header('Location:modifier-profil.php?Seuille_err=same');
-    } else header('Location:modifier-profil.php?Seuille_err=existPas');
+    } else header('Location:modifier-profil.php?Seuille_err=notExist');
 } else header('Location:modifier-profil.php?Seuille_err=incorrect');

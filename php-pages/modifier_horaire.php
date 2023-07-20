@@ -19,5 +19,5 @@ if (isset($_POST['day']) && isset($_POST['time']) && isset($_POST['start']) && i
         $update->execute(array('start' => $start, 'end' => $end, 'day' => $data['horaire_day'], 'time' => $data['horaire_time']));
         header('Location:page-admin.php?Horaires_err=success');
 
-    }else header('Location:page-admin.php?Horaires_err=MenuNotFound');
+    }else header('Location:page-admin.php?Horaires_err=notFound');
 }else header('Location:page-admin.php?Horaires_err=title-incorrect');

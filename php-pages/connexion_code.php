@@ -22,9 +22,9 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
                     'convives' => $data['user_nbConvives'],
                     'role' => $data['user_role']
                 ];
-                header('Location:compte.php');
+                header('Location:compte.php?login_err=sucess');
 
             }else header('Location:connexion.php?login_err=password');
         }else header('Location:connexion.php?login_err=email');
     } else header('Location:connexion.php?login_err=already');
-} else header('Location:connexion.php');
+} else header('Location:connexion.php?login_err=incorrect');

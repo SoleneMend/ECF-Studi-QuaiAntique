@@ -38,4 +38,4 @@ if (isset($_POST['name']) && isset($_POST['convives']) && isset($_POST['mail']) 
             }            
         }else header('Location:page-reservation.php?reserv_err=length');
     }else header('Location:page-reservation.php?reserv_err=already');
-}else header('Location:page-reservation.php?reserv_err=valeur');
+}else header('Location:page-reservation.php?reserv_err=incorrect');

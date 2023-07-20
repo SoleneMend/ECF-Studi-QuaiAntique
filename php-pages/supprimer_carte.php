@@ -14,7 +14,7 @@ if (isset($_POST['title'])) {
     {
         $delete = $pdo->prepare('DELETE FROM carte WHERE carte_name = :name');
         $delete->execute(array('name' => $title));
-        header('Location:page-admin.php?SupprimeCarte=success');
+        header('Location:page-admin.php?SupprimeCarte_err=success');
     
-    }else header('Location:page-admin.php?SupprimeCarte=doesntExist');
-}else header('Location:page-admin.php?SupprimeCarte=title');
+    }else header('Location:page-admin.php?SupprimeCarte_err=doesntExist');
+}else header('Location:page-admin.php?SupprimeCarte_err=title');

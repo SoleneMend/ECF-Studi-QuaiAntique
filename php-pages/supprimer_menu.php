@@ -14,7 +14,7 @@ if (isset($_POST['title'])) {
     {
         $delete = $pdo->prepare('DELETE FROM menu WHERE menu_title = :name');
         $delete->execute(array('name' => $title));
-        header('Location:page-admin.php?SupprimeMenu=success');
+        header('Location:page-admin.php?SupprimeMenu_err=success');
     
-    }else header('Location:page-admin.php?SupprimeMenu=doesntExist');
-}else header('Location:page-admin.php?SupprimeMenu=title');
+    }else header('Location:page-admin.php?SupprimeMenu_err=doesntExist');
+}else header('Location:page-admin.php?SupprimeMenu_err=title');
