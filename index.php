@@ -42,10 +42,10 @@ include 'php-pages/functions.php';
                 <a class="nav-link" href="#header">Page d'accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="page-reservation.php">Reservation</a>
+                <a class="nav-link" href="php-pages/page-reservation.php">Reservation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="compte.php">
+                <a class="nav-link" href="php-pages/compte.php">
                     <i class="ri-user-line"></i>
                 </a>
             </li>
