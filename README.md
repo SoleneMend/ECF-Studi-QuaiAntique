@@ -56,6 +56,6 @@ Il faudra simplement aller sur son compte pour avoir acces au `menu d'administat
 
 ![IMG](assets/admin.png)
 
-Compte Admin deja existant : 
-mail : admin@admin.fr
-mdp : admin du quai antique
+Compte Admin deja existant : <br>
+mail : admin@admin.fr <br>
+mdp : admin du quai antique <br>
