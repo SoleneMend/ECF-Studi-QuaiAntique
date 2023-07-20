@@ -70,7 +70,7 @@ CREATE TABLE `horaire` (
     `horaire_time` VARCHAR(36) NOT NULL,
     `horaire_start` TIME,
     `horaire_end` TIME,
-    `seuille_max` INT(3)
+    `seuil_max` INT(3)
 ) ENGINE = InnoDB;
 
 INSERT INTO `horaire` (`horaire_day`, `horaire_time`, `horaire_start`, `horaire_end`, `seuille_max`) VALUES

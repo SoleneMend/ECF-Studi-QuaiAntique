@@ -20,14 +20,14 @@ if (isset($_POST['name']) && isset($_POST['convives']) && isset($_POST['mail']) 
             $name_day = GetJourdeSemaine($day);
             foreach($pdo->query("SELECT * FROM horaire WHERE horaire_day ='".$name_day."'", PDO::FETCH_ASSOC) as $horaire) {
                 if ((strtotime($horaire['horaire_start']) <= strtotime($time)) && (strtotime($time) <= strtotime($horaire['horaire_end']))) {
-                    $seuille = 0;
+                    $seuil = 0;
     
                     foreach ($pdo->query("SELECT * FROM reservations WHERE reservation_date ='".$day."'", PDO::FETCH_ASSOC) as $res) {
                     if (($res['reservation_date'] == $name_day) && ( ($horaire['horaire_start'] <= $res['reservation_heure']) && ($res['reservation_heure'] <= $horaire['horaire_end'])))
-                        $seuille += $res['reservation_nbConvives'];
+                        $seuil += $res['reservation_nbConvives'];
                     }
     
-                    if (($seuille + $convives) <= $horaire['seuille_max']) {
+                    if (($seuil + $convives) <= $horaire['seuil_max']) {
                         $allergies = $_POST['allergies'];
     
                         $insert = $pdo->prepare('INSERT INTO reservations(reservation_name, reservation_mail, reservation_nbConvives, reservation_date, reservation_heure, reservation_allergies) VALUES(:name, :mail, :convives, :date, :time, :allergies)');

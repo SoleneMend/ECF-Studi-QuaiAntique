@@ -84,7 +84,7 @@ session_start();
                 </hr>
 
                 <form action="modifier_seuille_max.php" method="post">
-                    <h4 class="text-center"><u>Seuile maximum</u> :</h4>
+                    <h4 class="text-center"><u>Seuil maximum</u> :</h4>
                     <div class="form-group">
                         <label for="day">Entrer Jour :</label> <br />
                         <input type="text" name="day" class="form-control" placeholder="Entrer le jour" required>
@@ -94,11 +94,11 @@ session_start();
                         <input type="text" name="time" class="form-control" placeholder="dejeuner ou diner" required>
                     </div><br />
                     <div class="form-group">
-                        <label for="seuille">Nouveau seuille :</label> <br />
-                        <input type="number" name="seuille" class="form-control" placeholder="Entrer seuille maximun" required>
+                        <label for="seuil">Nouveau seuil :</label> <br />
+                        <input type="number" name="seuil" class="form-control" placeholder="Entrer seuil maximun" required>
                     </div><br />
                     <div class="text-center">
-                        <button type="submit" class="btn btn-quaiAntique">Modifier Seuille maximum</button>
+                        <button type="submit" class="btn btn-quaiAntique">Modifier Seuil maximum</button>
                     </div>
                 </form>
             </div> <br>

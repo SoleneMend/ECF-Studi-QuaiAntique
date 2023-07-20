@@ -122,15 +122,15 @@ if (isset($_GET['ajoutImage_err'])) {
     }
 }
 
-// Reservation (Seuille maximal)
-if (isset($_GET['Seuille_err'])) {
-    $err = htmlspecialchars($_GET['Seuille_err']);
+// Reservation (Seuil maximal)
+if (isset($_GET['Seuil_err'])) {
+    $err = htmlspecialchars($_GET['Seuil_err']);
 
     switch ($err) {
         case 'success':
         ?>
             <div class="alert alert-success">
-                <strong> Succès </strong> seuille maximal mise a jour !
+                <strong> Succès </strong> seuil maximal mise a jour !
             </div>
         <?php
         break;
