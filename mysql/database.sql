@@ -2,17 +2,18 @@
 
 CREATE TABLE `users` (
   `user_id` INT(36) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `user_name` VARCHAR(36) NOT NULL,
   `user_mail` VARCHAR(255) NOT NULL UNIQUE,
   `user_password` VARCHAR(255) NOT NULL,
-  `user_nbConvives` INT(2),
+  `user_nbConvives` INT(2) NOT NULL,
   `user_allergies` VARCHAR(255),
   `user_role` VARCHAR(16) NOT NULL CHECK (`user_role` in ("CLIENT","ADMIN"))
 ) ENGINE = InnoDB;
 
-INSERT INTO `users` (`user_mail`, `user_password`, `user_nbConvives`, `user_allergies`, `user_role`) VALUES
-('test@test.com', 'testons la database', 0, NULL, "CLIENT"),
-('wooow@jesaispas.wow', 'mot de passe', 5, 'eau, air, poison', "CLIENT"),
-('admin@admin.fr', 'admin du quai antique', 2, 'gluten', "ADMIN");
+INSERT INTO `users` (`user_name`, `user_mail`, `user_password`, `user_nbConvives`, `user_allergies`, `user_role`) VALUES
+('test', 'test@test.com', 'testons la database', 1, NULL, "CLIENT"),
+('woow', 'wooow@jesaispas.wow', 'mot de passe', 5, 'eau, air, poison', "CLIENT"),
+('Admin', 'admin@admin.fr', 'admin du quai antique', 2, 'gluten', "ADMIN");
 
 
 -- Table reservations :
@@ -20,7 +21,7 @@ CREATE TABLE `reservations` (
     `reservation_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `reservation_name` VARCHAR(36) NOT NULL,
     `reservation_mail` VARCHAR(255) NOT NULL,
-    `reservation_nbConvives` INT(2),
+    `reservation_nbConvives` INT(2) NOT NULL,
     `reservation_date` DATE NOT NULL,
     `reservation_heure` TIME NOT NULL,
     `reservation_allergies` VARCHAR(255)
@@ -50,8 +51,8 @@ INSERT INTO `carte` (`carte_name`, `carte_description`, `carte_price`) VALUES
 -- Table galerieImage :
 CREATE TABLE `galerieImage` (
     `galerieImage_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `galerieImage_name` VARCHAR(36) NOT NULL,
-    `galerieImage_imgLink` VARCHAR(255) NOT NULL
+    `galerieImage_name` VARCHAR(36) NOT NULL UNIQUE,
+    `galerieImage_imgLink` VARCHAR(255) NOT NULL UNIQUE
 ) ENGINE = InnoDB;
 
 INSERT INTO `galerieImage` (`galerieImage_name`, `galerieImage_imgLink`) VALUES
@@ -68,24 +69,25 @@ CREATE TABLE `horaire` (
     `horaire_day` VARCHAR(36) NOT NULL,
     `horaire_time` VARCHAR(36) NOT NULL,
     `horaire_start` TIME,
-    `horaire_end` TIME
+    `horaire_end` TIME,
+    `seuille_max` INT(3)
 ) ENGINE = InnoDB;
 
-INSERT INTO `horaire` (`horaire_day`, `horaire_time`, `horaire_start`, `horaire_end`) VALUES
-('lundi', 'dejeuner', '11:30:00', '14:00:00'),
-('lundi', 'diner', '19:30:00', '21:30:00'),
-('mardi', 'dejeuner', '11:30:00', '14:00:00'),
-('mardi', 'diner', '19:30:00', '21:30:00'),
-('mercredi', 'dejeuner', '11:30:00', '14:00:00'),
-('mercredi', 'diner', '19:30:00', '21:30:00'),
-('jeudi', 'dejeuner', '11:30:00', '14:00:00'),
-('jeudi', 'diner', '19:30:00', '21:30:00'),
-('vendredi', 'dejeuner', '11:30:00', '14:00:00'),
-('vendredi', 'diner', '19:30:00', '21:30:00'),
-('samedi', 'dejeuner', '11:00:00', '14:30:00'),
-('samedi', 'diner', '19:00:00', '22:00:00'),
-('dimanche', 'dejeuner', '11:00:00', '14:30:00'),
-('dimanche', 'diner', '19:00:00', '22:00:00');
+INSERT INTO `horaire` (`horaire_day`, `horaire_time`, `horaire_start`, `horaire_end`, `seuille_max`) VALUES
+('lundi', 'dejeuner', '11:30:00', '14:00:00', 100),
+('lundi', 'diner', '19:30:00', '21:30:00', 100),
+('mardi', 'dejeuner', '11:30:00', '14:00:00', 100),
+('mardi', 'diner', '19:30:00', '21:30:00', 100),
+('mercredi', 'dejeuner', '11:30:00', '14:00:00', 100),
+('mercredi', 'diner', '19:30:00', '21:30:00', 100),
+('jeudi', 'dejeuner', '11:30:00', '14:00:00', 100),
+('jeudi', 'diner', '19:30:00', '21:30:00', 100),
+('vendredi', 'dejeuner', '11:30:00', '14:00:00', 100),
+('vendredi', 'diner', '19:30:00', '21:30:00', 100),
+('samedi', 'dejeuner', '11:00:00', '14:30:00', 150),
+('samedi', 'diner', '19:00:00', '22:00:00', 175),
+('dimanche', 'dejeuner', '11:00:00', '14:30:00', 150),
+('dimanche', 'diner', '19:00:00', '22:00:00', 175);
 
 -- Table menu :
 CREATE TABLE `menu` (
