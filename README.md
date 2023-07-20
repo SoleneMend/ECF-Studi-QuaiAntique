@@ -18,6 +18,7 @@ Date de rendu final : `20/07/2023`
 
 #### Les fichiers sont repartis en 6 dossiers :
  - <u>assets</u> : dossier regroupant les `images generales` du projet. <br> (ex: logo, image pour le readme, ...)
+ - <u>documents</u> : dossier regroupant les documents a rendre.<br>
  - <u>img</u> : dossier regroupant les images pour la `galerie d'image`.
  - <u>mysql</u> : dossier regroupant 2 fichiers, la `database` et `connect.php`. <br>(fichier utile a la connexion avec la database)
  - <u>php-pages</u> : dossier regroupant toute les `pages php`.
