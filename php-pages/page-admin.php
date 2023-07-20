@@ -83,7 +83,7 @@ session_start();
                 <hr>
                 </hr>
 
-                <form action="modifier_seuille_max.php" method="post">
+                <form action="modifier_seuil_max.php" method="post">
                     <h4 class="text-center"><u>Seuil maximum</u> :</h4>
                     <div class="form-group">
                         <label for="day">Entrer Jour :</label> <br />

@@ -73,7 +73,7 @@ CREATE TABLE `horaire` (
     `seuil_max` INT(3)
 ) ENGINE = InnoDB;
 
-INSERT INTO `horaire` (`horaire_day`, `horaire_time`, `horaire_start`, `horaire_end`, `seuille_max`) VALUES
+INSERT INTO `horaire` (`horaire_day`, `horaire_time`, `horaire_start`, `horaire_end`, `seuil_max`) VALUES
 ('lundi', 'dejeuner', '11:30:00', '14:00:00', 100),
 ('lundi', 'diner', '19:30:00', '21:30:00', 100),
 ('mardi', 'dejeuner', '11:30:00', '14:00:00', 100),
