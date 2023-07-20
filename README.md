@@ -55,3 +55,7 @@ Pour l'administrateur : <br>
 Il faudra simplement aller sur son compte pour avoir acces au `menu d'administation` ou `changer le role de quelqu'un` (voir image) <br>
 
 ![IMG](assets/admin.png)
+
+Compte Admin deja existant : <br>
+mail : admin@admin.fr <br>
+mdp : admin du quai antique <br>
