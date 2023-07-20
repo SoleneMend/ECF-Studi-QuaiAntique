@@ -239,7 +239,7 @@ include 'php-pages/functions.php';
         <div class="HoraireAujourdhui small">
             Horaire du jour : <br>
             <?php
-            $today = JourdeSemaine();
+            $today = GetJourdeSemaine(date('Y-m-d'));
 
             foreach ($pdo->query("SELECT * FROM `horaire` ORDER BY `horaire_id`", PDO::FETCH_ASSOC) as $h) {
                 if ($h['horaire_day'] == $today && $h['horaire_time'] == 'dejeuner') {
