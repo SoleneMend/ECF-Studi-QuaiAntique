@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 include 'mysql/connect.php';
 include 'php-pages/functions.php';
 
@@ -46,7 +47,7 @@ include 'php-pages/functions.php';
                 <a class="nav-link" href="#reservation">Reservation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="php-pages/connexion.php">
+                <a class="nav-link" href="php-pages/compte.php">
                     <i class="ri-user-line"></i>
                 </a>
             </li>
@@ -133,12 +134,7 @@ include 'php-pages/functions.php';
         <!-- Reservation -->
         <section>
             <div class="text-center py-5" id="reservation">
-                <button type="button" class="btn btn-quaiAntique btn-lg">
-                    Reservation
-                </button>
-                <!--
-                        Reservation a coder, soit une nouvelle page soit un pop up.
-                    -->
+                <a href="php-pages/page-reservation.php" class="btn btn-quaiAntique btn-lg">Reservation</a><br><br>
             </div>
         </section>
         <!-- Menu + Carte + Horaire Desktop display -->
@@ -203,9 +199,7 @@ include 'php-pages/functions.php';
                         ?>
                     </div>
                     <div class="text-center px-5 py-5" id="carte">
-                        <button type="button" class="btn btn-quaiAntique btn-lg">
-                            <a class="text-url-button" href="php-pages/carte.php">Notre Carte </a>
-                        </button>
+                        <a href="php-pages/carte.php" class="btn btn-quaiAntique btn-lg"> Notre Carte </a>
                     </div>
                 </div>
                 <div class="order-lg-2">
