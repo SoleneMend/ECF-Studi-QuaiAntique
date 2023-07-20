@@ -1,3 +1,18 @@
+/*-- Navbar --*/
+.navbar {
+    background-color: #56382d;
+}
+
+.nav-link,
+.nav-link:visited {
+    color: white;
+}
+
+.nav-link:hover {
+    color: antiquewhite;
+}
+
+/*-- Body --*/
 body {
     background-color: #ae8b70;
     color: white;
@@ -19,6 +34,18 @@ body {
     color: antiquewhite;
 }
 
+#menu.box,
+#horaire.box {
+    width: 400px;
+    border: 5px solid white;
+    background-color: #56382d;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+/*-- Carousel --*/
 .carousel-item h5{
     opacity: 0%;
 }
@@ -48,16 +75,54 @@ body {
     border-radius: 30px;
 }
 
-#menu.box,
-#horaire.box {
+/*-- Box --*/
+.box {
     width: 400px;
-    border: 5px solid white;
-    background-color: #56382d;
+    border: 7px solid #56382d;
     padding: 20px;
     margin: auto;
     box-sizing: border-box;
     border-radius: 30px;
 }
+
+.box-alert {
+    width: 400px;
+    border: 7px solid rgba(86, 56, 45, 0%);
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+.box-reservation {
+    width: 500px;
+    border: 7px solid #56382d;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+/*-- Carte --*/
+.title {
+    text-decoration: underline;
+}
+
+.description {
+    font-style: italic;
+}
+
+.prix {
+    font-weight: bold;
+}
+
+/*-- footer --*/
+
+footer {
+    background-color: #56382d;
+    color: white;
+}
+
+/*-- mobile --*/
 
 .nav-mobile {
     display: none;
